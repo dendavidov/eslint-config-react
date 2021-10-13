@@ -51,7 +51,7 @@ jobs:
           git push origin --delete release/tmp | true
 
       - name: Create pull request
-        uses: thomaseizinger/create-pull-request@1.0.0
+        uses: thomaseizinger/create-pull-request@master
         with:
           GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           head: release/${{ env.SERVICE_VERSION }}
