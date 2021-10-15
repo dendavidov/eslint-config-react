@@ -1,6 +1,6 @@
 {
   "name": "@dendavidov/eslint-config-react",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "eslint config",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "release": "release-it"
   },
   "author": "",
-  "private": true,
+  "license": "ISC",
   "devDependencies": {
     "prettier": "^2.4.1",
     "release-it": "^14.11.6"
