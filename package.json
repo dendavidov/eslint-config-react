@@ -24,12 +24,12 @@
     "babel-eslint": "^10.1.0",
     "confusing-browser-globals": "^1.0.11",
     "eslint": "^8.9.0",
-    "eslint-config-prettier": "^8.4.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^26.1.1",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react": "^7.29.3",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-testing-library": "^5.0.5"
   }
