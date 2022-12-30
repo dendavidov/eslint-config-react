@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "prettier": "^2.8.1",
-    "release-it": "^15.5.0"
+    "release-it": "^15.6.0"
   },
   "files": [
     "base.js",
@@ -19,18 +19,21 @@
     "jest.js"
   ],
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.47.0",
-    "@typescript-eslint/parser": "^5.47.0",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
     "babel-eslint": "^10.1.0",
     "confusing-browser-globals": "^1.0.11",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.1.5",
+    "eslint-plugin-jest": "^27.1.7",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^5.9.1"
+  },
+  "overrides": {
+    "tsconfig-paths": "4.1.1"
   }
 }
