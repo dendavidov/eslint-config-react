@@ -2,19 +2,18 @@
   "name": "@dendavidov/eslint-config-react",
   "version": "0.5.0",
   "description": "eslint config",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "release-it"
   },
-  "author": "",
+  "author": "Denis Davydov mail@dendavidov.com",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "^2.8.4",
-    "release-it": "^15.6.0"
+    "prettier": "^2.8.4"
   },
   "files": [
-    "index.js"
+    "src/index.js"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.52.0",
@@ -25,6 +24,6 @@
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-testing-library": "^5.10.1"
+    "eslint-plugin-testing-library": "^5.10.2"
   }
 }
