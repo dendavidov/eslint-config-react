@@ -27,7 +27,7 @@ jobs:
       - name: Run release
         run:
           npm i -g @semantic-release/git
-          npm run semantic-release
+          npm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
