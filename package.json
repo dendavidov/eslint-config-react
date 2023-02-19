@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest --watchAll=false",
-    "release": "release-it"
+    "release": "npx semantic-release"
   },
   "author": "Denis Davydov mail@dendavidov.com",
   "license": "ISC",
