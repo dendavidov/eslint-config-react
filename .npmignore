@@ -1,0 +1,9 @@
+node_modules
+.github
+src/index.test.js
+.editorconfig
+.gitignore
+.npmignore
+.prettierrc
+.releaserc.json
+.commitlint.config
