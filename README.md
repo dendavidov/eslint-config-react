@@ -1,4 +1,6 @@
 # @dendavidov/eslint-config-react
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdendavidov%2Feslint-config-react.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdendavidov%2Feslint-config-react?ref=badge_shield)
+
 
 Opinionated eslint-config for React.js SPA.
 
@@ -36,3 +38,6 @@ to discuss what you would like to change.
 ## License
 
 [MIT](https://dendavidov.mit-license.org/)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdendavidov%2Feslint-config-react.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdendavidov%2Feslint-config-react?ref=badge_large)
