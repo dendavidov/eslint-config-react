@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --watchAll=false",
-    "release": "npx semantic-release"
+    "release": "npx semantic-release",
+    "prepare": "npx husky install"
   },
   "author": "Denis Davydov mail@dendavidov.com",
   "repository": {
@@ -26,7 +27,11 @@
     "src/index.js"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@semantic-release/git": "^10.0.1",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "husky": "^8.0.3",
     "jest": "^29.4.3",
     "prettier": "^2.8.4"
   },
