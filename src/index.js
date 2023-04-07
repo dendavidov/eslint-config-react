@@ -29,6 +29,7 @@ module.exports = {
         paths: ['src'],
         extensions: ['.ts', '.tsx'],
       },
+      typescript: {},
     },
   },
   overrides: [
