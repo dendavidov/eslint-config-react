@@ -54,7 +54,6 @@ module.exports = {
         // https://github.com/testing-library/eslint-plugin-testing-library
         'testing-library/await-async-queries': 'error',
         'testing-library/await-async-utils': 'error',
-        'testing-library/no-await-sync-query': 'warn',
         'testing-library/no-dom-import': ['error', 'react'],
         'testing-library/no-wait-for-snapshot': 'error',
       },
