@@ -26,9 +26,8 @@
   ],
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll=false",
-    "lint": "eslint src/**/*.js",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format:check": "prettier --check ./src",
     "release": "npx semantic-release",
     "prepare": "npx husky install"
   },
