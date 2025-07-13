@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --watchAll=false",
-    "release": "npx semantic-release",
+    "release": "npx semantic-release -dry-run",
     "prepare": "npx husky install"
   },
   "author": "Denis Davydov mail@dendavidov.com",
