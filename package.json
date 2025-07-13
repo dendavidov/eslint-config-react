@@ -1,6 +1,6 @@
 {
   "name": "@dendavidov/eslint-config-react",
-  "version": "1.1.46",
+  "version": "1.1.47",
   "type": "module",
   "description": "eslint config",
   "main": "src/index.js",
