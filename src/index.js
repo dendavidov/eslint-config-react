@@ -12,10 +12,10 @@ module.exports = {
     // Make sure it's always the last config, so it gets the chance to override other configs.
     'eslint-config-prettier',
   ],
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "ecmaVersion": 12,
-    "sourceType": "module"
+  parserOptions: {
+    project: './tsconfig.json',
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
   plugins: ['jest', 'testing-library', '@typescript-eslint'],
   settings: {

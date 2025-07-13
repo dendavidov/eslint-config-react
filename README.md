@@ -17,12 +17,15 @@ npm i -D @dendavidov/eslint-config-react
 ## Usage
 
 Add .eslintrc.json in the root of your project
+
 ```json
 {
   "extends": "@dendavidov/eslint-config-react"
 }
 ```
+
 Add script to package.json -> scripts:
+
 ```
 {
   ...
