@@ -16,21 +16,33 @@ npm i -D @dendavidov/eslint-config-react
 
 ## Usage
 
-Add .eslintrc.json in the root of your project
+Create `eslint.config.js` in the root of your project:
+```javascript
+import config from '@dendavidov/eslint-config-react';
+
+export default config;
+```
+
+Or extend with your own rules:
+```javascript
+import config from '@dendavidov/eslint-config-react';
+
+export default [
+  ...config,
+  {
+    rules: {
+      // Your custom rules
+    }
+  }
+];
+```
+
+Add script to package.json:
 ```json
 {
-  "extends": "@dendavidov/eslint-config-react"
-}
-```
-Add script to package.json -> scripts:
-```
-{
-  ...
   "scripts": {
-    ...
-    "lint": "eslint './src/**/*.{ts,tsx}'"
-  },
-  ...
+    "lint": "eslint './src/**/*.{ts,tsx,js,jsx}'"
+  }
 }
 ```
 
