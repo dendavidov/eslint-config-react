@@ -1,5 +1,6 @@
 {
   "branches": ["main"],
+  "repositoryUrl": "git@github.com:dendavidov/eslint-config-react.git",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
