@@ -7,6 +7,7 @@
 # @dendavidov/eslint-config-react
 
 Opinionated eslint-config for React.js SPA.
+Includes security best-practice rules via `eslint-plugin-security`.
 
 ## Installation
 
@@ -17,6 +18,7 @@ npm i -D @dendavidov/eslint-config-react
 ## Usage
 
 Create `eslint.config.js` in the root of your project:
+
 ```javascript
 import config from '@dendavidov/eslint-config-react';
 
@@ -24,6 +26,7 @@ export default config;
 ```
 
 Or extend with your own rules:
+
 ```javascript
 import config from '@dendavidov/eslint-config-react';
 
@@ -32,12 +35,13 @@ export default [
   {
     rules: {
       // Your custom rules
-    }
-  }
+    },
+  },
 ];
 ```
 
 Add script to package.json:
+
 ```json
 {
   "scripts": {

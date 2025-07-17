@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import reactPlugin from 'eslint-plugin-react';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
+import securityPlugin from 'eslint-plugin-security';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import jestPlugin from 'eslint-plugin-jest';
@@ -11,6 +12,8 @@ import prettierConfig from 'eslint-config-prettier';
 export default [
   // core ESLint recommended
   js.configs.recommended,
+  // Security rules
+  securityPlugin.configs.recommended,
 
   // React configuration
   {
