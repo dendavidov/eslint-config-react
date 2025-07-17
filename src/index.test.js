@@ -12,6 +12,12 @@ describe('@dendavidov/eslint-config-react', () => {
     expect(config).toEqual(expect.arrayContaining([jsConfig]));
   });
 
+  it('should include Security plugin configuration', () => {
+    const securityConfig = config.find((c) => c.plugins && c.plugins.security);
+    expect(securityConfig).toBeDefined();
+    expect(securityConfig.rules).toBeDefined();
+  });
+
   it('should include React plugin configuration', () => {
     const reactConfig = config.find((c) => c.plugins && c.plugins.react);
     expect(reactConfig).toBeDefined();
