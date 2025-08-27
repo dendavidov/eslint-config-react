@@ -1,6 +1,6 @@
 {
   "name": "@dendavidov/eslint-config-react",
-  "version": "2.1.11",
+  "version": "2.1.12",
   "description": "Shareable ESLint config for React + TypeScript (ESLint 9+)",
   "type": "module",
   "main": "src/index.js",
