@@ -32,7 +32,7 @@
     "prepare": "npx husky install"
   },
   "dependencies": {
-    "@eslint/js": "^9.31.0"
+    "@eslint/js": "^9.39.1"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.36.0",
@@ -44,8 +44,8 @@
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-testing-library": "^7.5.4",
-    "eslint-plugin-security": "^3.0.1"
+    "eslint-plugin-security": "^3.0.1",
+    "eslint-plugin-testing-library": "^7.5.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.0.0",
@@ -54,17 +54,17 @@
     "@typescript-eslint/eslint-plugin": "^8.36.0",
     "@typescript-eslint/parser": "^8.36.0",
     "conventional-changelog-conventionalcommits": "^9.1.0",
-    "eslint": "^9.31.0",
+    "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-security": "^3.0.1",
     "eslint-plugin-testing-library": "^7.5.4",
     "husky": "^9.1.7",
     "jest": "^30.0.4",
-    "prettier": "^3.6.2",
-    "eslint-plugin-security": "^3.0.1"
+    "prettier": "^3.6.2"
   }
 }
