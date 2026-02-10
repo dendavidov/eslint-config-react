@@ -6,7 +6,7 @@
 
 # @dendavidov/eslint-config-react
 
-Opinionated eslint-config for React.js SPA.
+Opinionated eslint-config for React.js SPA with ESLint 10+.
 Includes security best-practice rules via `eslint-plugin-security`.
 
 ## Installation
