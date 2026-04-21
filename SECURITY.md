@@ -10,7 +10,7 @@
 
 We provide security updates for the **current major version only** (v2.x.x).
 
-**Node.js Requirement**: `≥18.18.0` (per ESLint 9+ requirements)
+**Node.js Requirement**: **24.x** per `package.json` `engines.node`. The maintainer repo pins an exact patch in `.nvmrc` / `Dockerfile` for builds and automated updates.
 
 We follow semantic versioning and recommend always using the latest version for the most up-to-date security fixes. Security patches are released as patch versions (e.g., 2.1.3).
 
@@ -19,6 +19,7 @@ We follow semantic versioning and recommend always using the latest version for 
 This security policy covers:
 
 **In Scope:**
+
 - Vulnerabilities in the ESLint configuration rules that could lead to security bypasses
 - Supply chain security issues in our dependencies
 - Malicious code injection through configuration
@@ -27,10 +28,11 @@ This security policy covers:
 - Vulnerabilities that could affect build processes or CI/CD pipelines
 
 **Out of Scope:**
+
 - Issues with ESLint itself (report to [ESLint's security team](https://eslint.org/docs/latest/contribute/report-bugs#reporting-security-vulnerabilities))
 - Vulnerabilities in underlying Node.js runtime
 - Issues with specific IDE integrations
-- Performance issues that don't have security implications *(note: Regular Expression Denial of Service **(ReDoS)** is a security concern and **is** in scope)*
+- Performance issues that don't have security implications _(note: Regular Expression Denial of Service **(ReDoS)** is a security concern and **is** in scope)_
 - False positives in ESLint rules
 
 ## Reporting a Vulnerability
@@ -42,6 +44,7 @@ If you discover a security vulnerability, please report it **privately** to prot
 **Email**: [mail@dendavidov.com](mailto:mail@dendavidov.com)
 
 **Please include:**
+
 - A clear description of the vulnerability
 - Steps to reproduce the issue
 - Potential impact assessment
@@ -49,6 +52,7 @@ If you discover a security vulnerability, please report it **privately** to prot
 - Your contact information (if you'd like to be credited)
 
 **Please DO NOT:**
+
 - Create public GitHub issues for security vulnerabilities
 - Discuss the vulnerability in public forums
 - Share exploit code publicly before we've had time to respond
@@ -61,24 +65,24 @@ For non-security issues, please use our [GitHub Issues](https://github.com/denda
 
 We are committed to the following response timeline:
 
-| Stage | Target Timeline |
-|-------|----------------|
-| **Initial Response** | Within 48 hours |
-| **Vulnerability Confirmation** | Within 5 business days |
-| **Security Advisory (if needed)** | Within 7 business days |
-| **Fix Development** | Varies by complexity |
-| **Patched Release** | See severity-based table below |
+| Stage                             | Target Timeline                |
+| --------------------------------- | ------------------------------ |
+| **Initial Response**              | Within 48 hours                |
+| **Vulnerability Confirmation**    | Within 5 business days         |
+| **Security Advisory (if needed)** | Within 7 business days         |
+| **Fix Development**               | Varies by complexity           |
+| **Patched Release**               | See severity-based table below |
 
 > We assign **CVSS v3.1 base scores** ([calculator](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator)) to all confirmed vulnerabilities and use these scores to determine priority and timelines.
 
 ### Patch release target by severity
 
-| Severity | Patch Target |
-|----------|--------------|
+| Severity | Patch Target     |
+| -------- | ---------------- |
 | Critical | 14 business days |
 | High     | 30 business days |
 | Medium   | 60 business days |
-| Low      | Best effort |
+| Low      | Best effort      |
 
 ### Our Response Process:
 
@@ -101,22 +105,26 @@ We follow a **coordinated disclosure** approach:
 ## Security Measures We Implement
 
 ### Package Distribution Security
+
 - All releases are published to npm with appropriate access controls
 - Package integrity is maintained through npm's built-in checksums
 - We monitor for unauthorized package modifications
 
 ### Dependency Management
+
 - Regular dependency updates using automation (e.g., Dependabot)
 - Security scanning of all dependencies
 - Minimal dependency footprint to reduce attack surface
 
 ### Development Process
+
 - All changes require pull request reviews
 - Automated security scanning in CI/CD
 - Signed commits for maintainer contributions
 - Protected main branch with required status checks
 
 ### Supply Chain Protection
+
 - npm two-factor authentication (2FA) required for all maintainers
 - Package signing when available
 - Regular audits of package metadata
@@ -124,11 +132,13 @@ We follow a **coordinated disclosure** approach:
 ## Known Security Considerations
 
 ### ESLint Configuration Risks
+
 - **Rule Injection**: Malicious rules could potentially execute code during linting
 - **Path Traversal**: Incorrectly configured file patterns could access unintended files
 - **Performance Attacks**: Complex regex patterns could cause ReDoS (Regular Expression Denial of Service)
 
 ### Mitigation Strategies
+
 - We only use well-established, trusted ESLint plugins
 - File patterns are carefully reviewed and tested
 - Performance testing is included in our CI/CD pipeline
@@ -154,5 +164,5 @@ If you have questions about this security policy or want to report a non-securit
 
 ---
 
-**Last Updated**: 2025-12-06
+**Last Updated**: 2026-04-22
 **Policy Version**: 1.0

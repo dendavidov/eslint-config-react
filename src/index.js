@@ -9,6 +9,7 @@ import jestPlugin from 'eslint-plugin-jest';
 import testingLibraryPlugin from 'eslint-plugin-testing-library';
 import prettierConfig from 'eslint-config-prettier';
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
   // core ESLint recommended
   js.configs.recommended,

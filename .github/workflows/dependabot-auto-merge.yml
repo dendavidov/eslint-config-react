@@ -28,4 +28,3 @@ jobs:
 
           # Enable GitHub's auto-merge; it will merge once all required checks (e.g. `checks` workflow) pass
           gh pr merge --auto --squash "$PR_URL"
-

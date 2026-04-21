@@ -6,14 +6,24 @@
 
 # @dendavidov/eslint-config-react
 
-Opinionated eslint-config for React.js SPA with ESLint 10+.
+Opinionated eslint-config for React.js SPA with ESLint 9+ (flat config).
 Includes security best-practice rules via `eslint-plugin-security`.
+
+- **ESLint 9+ flat config** (bundled `eslint` + `@eslint/js`; plugin ecosystem is not fully on ESLint 10 yet, so this package currently resolves ESLint 9.x)
+- **Node.js 24.x required** (`engines.node`); this repo pins an exact patch in `.nvmrc` / `Dockerfile` for CI
+- **ESLint is bundled** as a normal dependency — you do not add `eslint` as its own devDependency; resolve the CLI with `npx eslint`, `pnpm exec eslint`, or a `lint` script
 
 ## Installation
 
+Install this package **and** its peer dependencies (ESLint plugins and parsers this config expects):
+
 ```bash
-npm i -D @dendavidov/eslint-config-react
+pnpm add -D @dendavidov/eslint-config-react @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-security eslint-plugin-testing-library
 ```
+
+(or the equivalent `npm i -D …` with the same package list.)
+
+`eslint` itself is installed transitively with `@dendavidov/eslint-config-react`; use `npx eslint` or `pnpm exec eslint` so the binary comes from your install tree.
 
 ## Usage
 
@@ -49,6 +59,10 @@ Add script to package.json:
   }
 }
 ```
+
+## Node.js version
+
+This config requires **Node.js 24.x** (see `engines.node` on npm). Development of this package uses a **pinned patch** in `.nvmrc` (and `Dockerfile`) so CI and Dependabot stay aligned.
 
 ## Contributing
 

@@ -3,11 +3,34 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     commit-message:
-      prefix: "build: "
+      prefix: 'build: '
     assignees:
-      - "dendavidov"
+      - 'dendavidov'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    commit-message:
+      prefix: 'build: '
+    assignees:
+      - 'dendavidov'
+
+  # Bumps the `node` Docker image tag; keep `.nvmrc` + package.json engines in sync (verify-node-pins).
+  - package-ecosystem: 'docker'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    commit-message:
+      prefix: 'build: '
+    assignees:
+      - 'dendavidov'
+    ignore:
+      - dependency-name: 'node'
+        update-types:
+          - 'version-update:semver-major'
