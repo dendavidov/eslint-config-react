@@ -1,7 +1,11 @@
 name: Dependabot auto-merge
 
 on:
-  pull_request:
+  # Dependabot-triggered `pull_request` workflows cannot read Actions secrets,
+  # so the PAT used below was empty. `pull_request_target` runs the workflow
+  # from the trusted base branch and can read the repository's GH_TOKEN secret.
+  # This job never checks out or executes code from the pull request.
+  pull_request_target:
     types:
       - opened
       - reopened
