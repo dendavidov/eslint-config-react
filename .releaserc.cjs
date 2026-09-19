@@ -54,15 +54,8 @@ module.exports = {
       '@semantic-release/exec',
       {
         prepareCmd:
-          'npm version ${nextRelease.version} --git-tag-version=false --allow-same-version',
+          'npm version ${nextRelease.version} --git-tag-version=false --allow-same-version --package-lock=false',
         publishCmd: 'npm publish --provenance --access public',
-      },
-    ],
-    [
-      '@semantic-release/git',
-      {
-        assets: ['package.json', 'package-lock.json'],
-        message: 'chore(release): ${nextRelease.version} [skip ci]',
       },
     ],
   ],
