@@ -182,9 +182,6 @@ importers:
       '@semantic-release/exec':
         specifier: ^7.1.0
         version: 7.1.0(semantic-release@25.0.9(typescript@6.0.3))
-      '@semantic-release/git':
-        specifier: ^11.0.1
-        version: 11.0.1(semantic-release@25.0.9(typescript@6.0.3))
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.70.0
         version: 8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3))(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3)
@@ -869,12 +866,6 @@ packages:
     engines: {node: '>=20.8.1'}
     peerDependencies:
       semantic-release: '>=24.1.0'
-
-  '@semantic-release/git@11.0.1':
-    resolution: {integrity: sha512-Zr8BUYCTZMc8V6wDKN2dpR7nJgewd9I6THL3ydLTnp3OEdTo1/4RBLNYaeRucYMsjMv+BXoCNfXA0NADj1kwhw==}
-    engines: {node: ^22.22.2 || >=24.15}
-    peerDependencies:
-      semantic-release: '>=20.1.0'
 
   '@semantic-release/github@12.0.9':
     resolution: {integrity: sha512-ODIqb0V3QqndipryEEiaBxUQCFjvv7Oese5Dt4omMGa60YRNEW0Sx3K+zri0uac2Y6S9nOlMehciWIzvvRCTGQ==}
@@ -4485,20 +4476,6 @@ snapshots:
       execa: 9.6.1
       lodash-es: 4.18.1
       parse-json: 8.3.0
-      semantic-release: 25.0.9(typescript@6.0.3)
-    transitivePeerDependencies:
-      - supports-color
-
-  '@semantic-release/git@11.0.1(semantic-release@25.0.9(typescript@6.0.3))':
-    dependencies:
-      '@semantic-release/error': 4.0.0
-      aggregate-error: 5.0.0
-      debug: 4.4.3
-      dir-glob: 3.0.1
-      execa: 10.0.1
-      lodash-es: 4.18.1
-      micromatch: 4.0.8
-      p-reduce: 3.0.0
       semantic-release: 25.0.9(typescript@6.0.3)
     transitivePeerDependencies:
       - supports-color
