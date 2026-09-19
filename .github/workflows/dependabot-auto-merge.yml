@@ -1,15 +1,13 @@
 name: Dependabot auto-merge
 
 on:
-  # Dependabot-triggered `pull_request` workflows cannot read Actions secrets,
-  # so the PAT used below was empty. `pull_request_target` runs the workflow
-  # from the trusted base branch and can read the repository's GH_TOKEN secret.
-  # This job never checks out or executes code from the pull request.
-  pull_request_target:
+  # Run only after the test pipeline completes so a repository without required
+  # branch-protection checks cannot merge a failing Dependabot update.
+  workflow_run:
+    workflows:
+      - checks
     types:
-      - opened
-      - reopened
-      - synchronize
+      - completed
 
 permissions:
   contents: write
@@ -18,20 +16,30 @@ permissions:
 jobs:
   enable-auto-merge:
     runs-on: ubuntu-latest
-    # Only run for Dependabot PRs
-    if: github.actor == 'dependabot[bot]'
+    # Only successful pull-request runs created by Dependabot are eligible.
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.actor.login == 'dependabot[bot]' &&
+      github.event.workflow_run.pull_requests[0] != null
 
     steps:
       - name: Enable auto-merge for Dependabot PR
         env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
           # Use a PAT, NOT the default GITHUB_TOKEN: GitHub does not start new
           # workflow runs from pushes made with GITHUB_TOKEN, so an auto-merge
           # enabled with it would never trigger the Release workflow on `main`.
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          # Wait for every other PR pipeline (for example CodeQL) and stop as
+          # soon as one fails. This is an explicit safety gate even when the
+          # repository's branch-protection settings do not require checks.
+          gh pr checks --watch --fail-fast "$PR_NUMBER"
+
           # Approve the PR (some branch protection rules require an approval)
-          gh pr review --approve "$PR_URL"
+          gh pr review --approve "$PR_NUMBER"
 
           # Enable GitHub's auto-merge; it will merge once all required checks (e.g. `checks` workflow) pass
-          gh pr merge --auto --squash "$PR_URL"
+          gh pr merge --auto --squash "$PR_NUMBER"
