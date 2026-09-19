@@ -9,7 +9,7 @@
   "author": "Denis Davydov <mail@dendavidov.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:dendavidov/eslint-config-react.git"
+    "url": "https://github.com/dendavidov/eslint-config-react.git"
   },
   "bugs": {
     "url": "https://github.com/dendavidov/eslint-config-react/issues"
