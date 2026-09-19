@@ -19,7 +19,8 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6
-        # Version comes from package.json "packageManager" (do not set "version" here).
+        with:
+          version: 12.4.2
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
