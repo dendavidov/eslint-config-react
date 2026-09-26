@@ -11,6 +11,11 @@ updates:
       prefix: 'build: '
     assignees:
       - 'dendavidov'
+    ignore:
+      # v10 is incompatible with semantic-release's current changelog writer.
+      - dependency-name: 'conventional-changelog-conventionalcommits'
+        update-types:
+          - 'version-update:semver-major'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
