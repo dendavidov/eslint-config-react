@@ -2,7 +2,7 @@
 
 /**
  * Ensures `.nvmrc` and `Dockerfile` FROM use the same Node patch.
- * Dependabot updates the Docker `node` image; mirror that version into `.nvmrc` in the same PR.
+ * The sync-node-pin workflow mirrors Dependabot's Docker image updates into `.nvmrc`.
  */
 
 const fs = require('fs');
