@@ -21,7 +21,7 @@ updates:
     assignees:
       - 'dendavidov'
 
-  # Bumps the `node` Docker image tag; keep `.nvmrc` + package.json engines in sync (verify-node-pins).
+  # Bumps the `node` Docker image tag; sync-node-pin mirrors it into `.nvmrc`.
   - package-ecosystem: 'docker'
     directory: '/'
     schedule:

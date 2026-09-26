@@ -1,0 +1,59 @@
+name: Sync Node pin
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+# This workflow only reads the Dependabot commit through the GitHub API. It
+# never checks out or executes pull-request code with access to the PAT.
+permissions:
+  contents: read
+
+jobs:
+  sync-node-pin:
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.head.ref, 'dependabot/docker/node-')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Keep .nvmrc aligned with the Node image
+        env:
+          GH_REPO: ${{ github.repository }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          # A PAT is required because commits made with GITHUB_TOKEN do not
+          # start a new pull_request check run for the synchronized branch.
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          dockerfile="$(gh api \
+            -H 'Accept: application/vnd.github.raw+json' \
+            "repos/$GH_REPO/contents/Dockerfile?ref=$HEAD_SHA")"
+          node_version="$(sed -nE 's/^FROM[[:space:]]+node:([0-9]+\.[0-9]+\.[0-9]+)(-.+)?$/\1/p' <<<"$dockerfile")"
+
+          if [[ ! "$node_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Dockerfile must contain one pinned node:x.y.z image" >&2
+            exit 1
+          fi
+
+          nvmrc_json="$(gh api "repos/$GH_REPO/contents/.nvmrc?ref=$HEAD_SHA")"
+          nvmrc="$(jq -r '.content' <<<"$nvmrc_json" | base64 --decode | tr -d '[:space:]')"
+
+          if [[ "$nvmrc" == "$node_version" ]]; then
+            echo "Node pins already aligned: $node_version"
+            exit 0
+          fi
+
+          # Updating the Dependabot branch with the PAT emits a synchronize
+          # event, causing the checks workflow to rerun against aligned pins.
+          gh api --method PUT "repos/$GH_REPO/contents/.nvmrc" \
+            -f message="build: align Node pin with Docker image" \
+            -f content="$(printf '%s\n' "$node_version" | base64 -w 0)" \
+            -f sha="$(jq -r '.sha' <<<"$nvmrc_json")" \
+            -f branch="$HEAD_REF"
